@@ -2,10 +2,9 @@ package com.EShop.EShop.controller;
 
 import com.EShop.EShop.dto.ProductCartDto;
 import com.EShop.EShop.service.ProductCartService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +18,13 @@ public class ProductCartController {
         this.productCartService = productCartService;
     }
 
-    @GetMapping("productCart/{cart_id}")
-    private List<ProductCartDto> getAllByCart(@PathVariable("cart_id") Long id){
-        return productCartService.findAllByCart(id);
+//    @GetMapping("productCart/{cart_id}")
+//    private List<ProductCartDto> getAllByCart(@PathVariable("cart_id") Long id){
+//        return productCartService.findAllByCart(id);
+//    }
+
+    @PostMapping("/productcart")
+    private ResponseEntity<ProductCartDto> saveProductCart(@Valid @RequestBody ProductCartDto productCartDto){
+        return ResponseEntity.ok(productCartService.saveProductCart(productCartDto));
     }
 }

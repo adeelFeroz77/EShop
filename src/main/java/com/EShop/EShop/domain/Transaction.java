@@ -15,7 +15,6 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double amount;
-
     @OneToOne
     @JoinColumn(name = "cart_id",referencedColumnName = "id")
     private Cart cart;

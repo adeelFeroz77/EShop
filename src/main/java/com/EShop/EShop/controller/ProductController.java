@@ -35,7 +35,7 @@ public class ProductController {
     }
 
     @PatchMapping("/product/{id}")
-    private ResponseEntity<ProductDto> updateProductByField(@PathVariable Long id, Map<String,Object> fields){
+    private ResponseEntity<ProductDto> updateProductByField(@PathVariable Long id,@RequestBody Map<String,Object> fields){
         return ResponseEntity.ok(productService.updateByField(id,fields));
     }
 

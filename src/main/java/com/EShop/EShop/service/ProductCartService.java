@@ -47,10 +47,10 @@ public class ProductCartService {
         return toDto(productCartRepository.save(p.get()));
     }
 
-    public List<ProductCartDto> findAllByCart(Long cartId){
-        List<ProductCart> productCarts = productCartRepository.findAllByCart(cartId);
-        return productCarts.stream().map(this::toDto).collect(Collectors.toList());
-    }
+//    public List<ProductCartDto> findAllByCart(Long cartId){
+//        List<ProductCart> productCarts = productCartRepository.findAllByCartId(cartId);
+//        return productCarts.stream().map(this::toDto).collect(Collectors.toList());
+//    }
 
     public List<ProductCartDto> findAllByProduct(ProductCartDto productCartDto){
         ProductCart productCart = toDo(productCartDto);

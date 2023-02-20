@@ -1,5 +1,6 @@
 package com.EShop.EShop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,6 +29,7 @@ public class Cart {
     @JoinColumn(name = "coupon_id")
     private Coupon coupon;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cart")
     private List<ProductCart> productCarts;
 

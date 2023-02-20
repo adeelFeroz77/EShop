@@ -13,8 +13,10 @@ import java.util.Optional;
 
 @Repository
 public interface ProductCartRepository extends JpaRepository<ProductCart,Long> {
-    @Query("Select * from ProductCart as pc where pc.cart_id =: cart_id")
-    public List<ProductCart> findAllByCart(@Param("cart_id") Long cart_id);
+    public List<ProductCart> findAllByCartId(Long id);
+
+    @Query("From ProductCart where cart.id = :id")
+    public List<ProductCart> getAllByCartId(Long id);
 
     public List<ProductCart> findAllByProduct(Product product);
 
